@@ -7,14 +7,16 @@ e para termos uma melhor visão de como iremos solucionar o problema.
 
 Antes de começar a desenvolver eu assisti alguns vídeos como este -> https://www.youtube.com/watch?v=oamlR8tripU para saber como é que se joga.
 
-em seguida montei um plano para torná-lo muito mais interativo fazendo com que os jogadores pudessem inserir seus nomes e serem guardados na 
+em seguida montei um plano para torná-lo muito mais interativo fazendo com que os jogadores pudessem inserir seus nomes e serem guardados na
 base de dados após isso eles iniciam o jogo.
 
 # O que acontece quando um player vence?
+
 Pretendo criar um mini sistema de score que guarde e crie um ranking de que está no top contendo a quantidade de vitórias.
 
 # Tecnologias que irei utilizar
--> Node js para o backend e criação de API com Express
--> ORM Prisma para criar a modelagem
--> MongoDb como banco de dados
+
+-> Node js para o backend e criação de API com Express<br>
+-> ORM Prisma para criar a modelagem<br>
+-> MongoDb como banco de dados<br>
 -> React js para a criação de interfaces reativas
