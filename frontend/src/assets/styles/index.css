@@ -1,0 +1,109 @@
+body {
+	background: radial-gradient(circle, #1a1a2e 0%, #0f0f1a 100%);
+
+}
+
+.container {
+	text-align: center;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.status-title {
+	color: #ffffff;
+	font-size: 1.8rem;
+	font-weight: 600;
+	margin: 20px 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+}
+
+/* Efeito extra: Se o Vermelho vencer, o título brilha em vermelho */
+.status-title.winner-red {
+	color: #ff4757;
+	text-shadow: 0 0 15px rgba(255, 71, 87, 0.6);
+}
+
+/* Efeito extra: Se o Amarelo vencer, o título brilha em amarelo */
+.status-title.winner-yellow {
+	color: #ffa502;
+	text-shadow: 0 0 15px rgba(255, 165, 2, 0.6);
+}
+
+/* Efeito extra: Se der empate, ganha um brilho sutil cinza/branco */
+.status-title.draw {
+	color: #eceff1;
+	text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.board {
+	display: grid;
+	grid-template-columns: repeat(7, 60px);
+	gap: 8px;
+	justify-content: center;
+	margin: 20px auto;
+	background: #222338;
+	padding: 15px;
+	width: 100%;
+	max-width: 500px;
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.cell {
+	width: 60px;
+	height: 60px;
+	background: #161626;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border-radius: 50%;
+	/* Deixei redondo porque combina mais com Lig 4 */
+	box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+.piece {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: transparent;
+	/* Invisível quando não tem peça */
+	transition: all 0.2s ease-in-out;
+}
+
+/* Vermelho moderno (estilo Coral/Neon) */
+.piece.red {
+	background: #ff4757;
+	box-shadow: 0 0 15px rgba(255, 71, 87, 0.6), inset 0 -4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Amarelo moderno (estilo Ouro/Neon) */
+.piece.yellow {
+	background: #ffa502;
+	box-shadow: 0 0 15px rgba(255, 165, 2, 0.6), inset 0 -4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Botão estilizado para combinar com o tema escuro */
+button {
+	padding: 10px 25px;
+	cursor: pointer;
+	background: #2e3056;
+	color: #ffffff;
+	border: 1px solid #484b7c;
+	border-radius: 8px;
+	font-weight: bold;
+	transition: all 0.2s ease;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+	background: #484b7c;
+	box-shadow: 0 0 12px rgba(72, 75, 124, 0.5);
+	transform: translateY(-1px);
+}
+
+.vs{
+	font-size: 16px;
+	color: #fff;
+}

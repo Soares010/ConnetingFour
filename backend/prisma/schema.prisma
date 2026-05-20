@@ -1,0 +1,75 @@
+generator client {
+      provider = "prisma-client-js"
+}
+
+datasource db {
+      provider = "mongodb"
+      url      = env("DATABASE_URL")
+}
+
+model Player {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+
+      username String @unique
+
+      ranking Ranking?
+
+      createdAt DateTime @default(now())
+}
+
+model Game {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+
+      playerOneName String
+      playerTwoName String
+
+      winnerName String?
+      gameToken  String     @unique
+      status     GameStatus @default(IN_PROGRESS)
+
+      createdAt DateTime @default(now())
+
+      logs GameLog[]
+}
+
+model GameLog {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+
+      gameId String @db.ObjectId
+
+      action LogAction
+
+      message String
+
+      createdAt DateTime @default(now())
+
+      game Game @relation(fields: [gameId], references: [id])
+}
+
+model Ranking {
+      id String @id @default(auto()) @map("_id") @db.ObjectId
+
+      playerId String @unique @db.ObjectId
+
+      wins Int @default(0)
+
+      losses Int @default(0)
+
+      points Int @default(0)
+
+      player Player @relation(fields: [playerId], references: [id])
+}
+
+enum GameStatus {
+      IN_PROGRESS
+      FINISHED
+      DRAW
+}
+
+enum LogAction {
+      START_GAME
+      MOVE_PLAYED
+      PLAYER_WIN
+      DRAW_GAME
+      GAME_RESET
+}
